@@ -14,4 +14,3 @@ plot.
 9. Create a correlation matrix between the SquareFeet and Price variables and display the
 matrix using a heatmap to observe the correlations.
 
-Translated with DeepL.com (free version)
