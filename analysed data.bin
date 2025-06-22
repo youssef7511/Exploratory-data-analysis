@@ -1,0 +1,44 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "import pandas as pd import numpy as np import matplotlib.pyplot as plt\n",
+    "import seaborn as sns sns.set(style=“whitegrid”) df =\n",
+    "pd.read_csv(“house.csv”) df.head() print(df.info())\n",
+    "\n",
+    "# Vérifier les valeurs manquantes\n",
+    "\n",
+    "print(df.isnull().sum()) \\# Afficher des statistiques descriptives\n",
+    "df.describe() plt.figure(figsize=(8, 5)) sns.histplot(df\\[“Price”\\],\n",
+    "bins=50, kde=True) plt.title(“Distribution des prix des maisons”)\n",
+    "plt.xlabel(“Prix”) plt.ylabel(“Nombre de maisons”) plt.show()\n",
+    "plt.figure(figsize=(8, 5)) sns.countplot(x=“Neighborhood”, data=df,\n",
+    "order=df\\[“Neighborhood”\\].value_counts().index) plt.title(“Distribution\n",
+    "des maisons par quartier”) plt.xlabel(“Quartier”) plt.ylabel(“Nombre de\n",
+    "maisons”) plt.xticks(rotation=45) plt.show() plt.figure(figsize=(8, 5))\n",
+    "sns.boxplot(x=df\\[“Price”\\]) plt.title(“Détection des valeurs\n",
+    "aberrantes - Prix”) plt.show() plt.figure(figsize=(8, 5))\n",
+    "sns.scatterplot(x=df\\[“SquareFeet”\\], y=df\\[“Price”\\])\n",
+    "plt.title(“Relation entre la superficie et le prix”)\n",
+    "plt.xlabel(“Superficie (SquareFeet)”) plt.ylabel(“Prix”) plt.show()\n",
+    "plt.figure(figsize=(8, 5)) sns.boxplot(x=df\\[“Bedrooms”\\],\n",
+    "y=df\\[“Price”\\]) plt.title(“Relation entre le nombre de chambres et le\n",
+    "prix”) plt.xlabel(“Nombre de chambres”) plt.ylabel(“Prix”) plt.show()\n",
+    "plt.figure(figsize=(6, 5)) corr_matrix = df\\[\\[“SquareFeet”,\n",
+    "“Price”\\]\\].corr() sns.heatmap(corr_matrix, annot=True, cmap=“coolwarm”,\n",
+    "fmt=“.2f”) plt.title(“Matrice de corrélation - SquareFeet vs Price”)\n",
+    "plt.show() plt.figure(figsize=(8, 6)) corr_matrix = df\\[\\[“SquareFeet”,\n",
+    "“Bedrooms”, “Bathrooms”, “YearBuilt”, “Price”\\]\\].corr()\n",
+    "sns.heatmap(corr_matrix, annot=True, cmap=“coolwarm”, fmt=“.2f”)\n",
+    "plt.title(“Matrice de corrélation entre toutes les variables\n",
+    "numériques”) plt.show()"
+   ],
+   "id": "42a14256-91c8-446e-92a7-ab6bf11055d3"
+  }
+ ],
+ "nbformat": 4,
+ "nbformat_minor": 5,
+ "metadata": {}
+}
